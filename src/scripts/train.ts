@@ -12,6 +12,16 @@ const main = async () => {
 
   const gmail = google.gmail({ version: "v1", auth });
 
+  console.log("Setting up Gmail watch...");
+  await gmail.users.watch({
+    userId: "me",
+    requestBody: {
+      topicName: "projects/gmail-ai-sorter-468313/topics/gmail-new-email",
+      labelIds: ["INBOX"],
+    },
+  });
+  console.log("Gmail watch configured successfully.");
+
   console.log("\nStep 2: Fetching training data...");
   const allEmails: { content: string; label: string }[] = [];
   const emailsPerLabel = 500;
