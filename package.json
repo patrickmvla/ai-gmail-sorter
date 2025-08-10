@@ -1,0 +1,26 @@
+{
+  "name": "gmail-ai-sorter",
+  "description": "An AI agent to automatically sort Gmail.",
+  "scripts": {
+    "dev": "bun --hot src/server.ts",
+    "start": "bun src/server.ts",
+    "train": "bun src/scripts/train.ts"
+  },
+  "type": "module",
+  "private": true,
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "@google-cloud/pubsub": "^5.1.0",
+    "@tensorflow/tfjs": "^4.22.0",
+    "@tensorflow/tfjs-node": "^4.22.0",
+    "google-auth-library": "^10.2.1",
+    "googleapis": "^155.0.0",
+    "hono": "^4.8.12",
+    "open": "^10.2.0"
+  }
+}
